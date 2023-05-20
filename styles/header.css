@@ -1,0 +1,165 @@
+.cabeçalho__menu-hamburguer { /*colocar o menu*/
+    width: 24px;
+    height: 24px;
+    background-image: url(../img/Menu.svg); /*os dois pontos é para ele voltar para o alurabooks ao invés de procurar dentro da pasta styles*/
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+}
+
+.container_botao:checked~.container_rotulo>.cabeçalho__menu-hamburguer {
+    background-image: url(../img/Menu2.svg);
+}
+
+.container_botao:checked ~.container_rotulo {
+    background: var(--azul-gradiente);    
+}
+
+.cabeçalho {
+    background-color: var(--cor-do-cabecalho);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative; /*libera a posição para usar outras, como left, top, etc*/
+}
+
+.container {
+    display: flex;
+    align-items: center;
+}
+
+.container_imagem {
+    padding: 0.2em;
+}
+
+.lista-menu {
+    display: none;
+    position: absolute; /*Movimentar a partir de outra, nesse caso a partir do cabeçalho*/
+    top: 100%; /*libera 100% do cabeçalho e fica para baixo*/
+    width: 60vw;
+}
+
+.container_botao:checked~.lista-menu { /*A lista só aparecer quando clicar no botão*/
+    display: block;
+}
+
+.lista-menu_titulo, .lista-menu_item {
+    padding: 1em;
+    background-color: var(--cor-do-cabecalho);
+}
+
+.lista-menu_titulo {
+    color: var(--laranja-letra);
+    font-weight: 700;
+}
+
+.lista-menu_link {
+    background: var(--azul-gradiente);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-transform: uppercase; /*letras maiúsculas*/
+}
+
+.container_botao {
+    display: none; /*tirar o check que tinha ao lado do menu*/
+}
+
+.container_titulo {
+    display: none;
+}
+
+.opções{
+    display: none;
+}
+
+.container_texto {
+    display: none;
+}
+
+@media screen and (min-width:1024px) {
+    .container_titulo, .container_titulo--negrito {
+        font-family: var("--fonte-secundaria");
+        font-size: 30px;
+    }
+
+    .container_titulo {
+        font-weight: 400;
+        display:block; /*aparecer só quando a tela for no mínimo 1024*/
+    }
+
+    .container_titulo--negrito {
+        font-weight: 700;
+    }
+
+    .opções {
+        display: flex;
+
+    }
+
+    .opções_item {
+        padding: 0 1em;
+
+    }
+
+    .opções_link {
+        text-decoration: none;
+        color: var("--preto");
+    }
+
+    .container_favoritos-transparente {
+        display: none; /*desaparece nessa tela*/
+    }
+
+    .cabeçalho__menu-hamburguer {
+        display: none;
+    }
+
+    .opções_botao:checked~.lista-menu {
+        display: block;
+        width: auto;
+    }
+
+    .opções_botao {
+        display: none;
+    }
+
+    .opções_botao:checked~.opções_rotulo>.opções_item {
+        background: var(--azul-gradiente);
+        color: var(--cor-do-cabecalho);
+    }
+
+    .opções_item {
+        padding: 2em 1em;
+    }
+
+    .lista-menu_item:hover { /*hover é quando passar o mouse por cima*/
+        background: var(--azul-gradiente);
+    }
+
+    .lista-menu_item:hover > .lista-menu_link {
+        -webkit-text-fill-color: var(--cor-do-cabecalho);
+        text-decoration: none;
+    }
+}
+
+@media screen and (min-width: 1728px) {
+    .container_link {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: var("--preto");
+    }
+
+    .cabeçalho {
+        padding: 0 2em;
+    }
+
+    .opções {
+        margin-right: auto;
+    }
+
+    .container_texto {
+        display: block;
+    }
+}
